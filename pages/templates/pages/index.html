@@ -1,14 +1,23 @@
 {% extends 'pages/base.html' %}
+{% load static %}
 {% block content %}
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
         <div class="row">
-            <div class="col">
-                <h1 class="display-3 text-center">Hello, world!</h1>
+            <!-- <h1 class="display-3 text-center"></h1> -->
+            <!-- <div class="col-md"></div> -->
+            <div class="col-md">
+                <img class="w-25 rounded-circle mx-auto d-block" src="{% static "pages/adult-beard.jpg" %}">
+            </div>
+            <!-- <div class="col-md"></div> -->
+        </div>
+        <hr />
+        <div class="row">
+
+            <div class="col-md">
+                <p class="lead text-center">Developer &#8212 Maker &#8212 RGB Enthusiast</p>
             </div>
         </div>
-        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-    
 
         </p>
     </div>
