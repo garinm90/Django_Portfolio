@@ -15,33 +15,58 @@
 
 <body>
 
-  <nav class="navbar is-light level">
+  <nav class="navbar is-light">
     <div class="container">
       <div class="navbar-brand">
-        <a href="#" class="level-item navbar-item is-size-5 has-text-weight-medium">
+        <a href="{% url 'pages:index' %}" class="level-item navbar-item is-size-5 has-text-weight-medium">
           Max Garin
+        </a>
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+          data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
         </a>
       </div>
       <div class="navbar-menu">
         <div class="navbar-start">
-          <a href="#" class="level-item navbar-item">Home</a>
-          <a href="#" class="navbar-item">Blog</a>
+          <a href="{% url 'pages:index' %}" class="navbar-item">Home</a>
+          <a href="{% url 'blog:list' %}" class="navbar-item">Blog</a>
           <a href="#" class="navbar-item">Projects</a>
           <a href="#" class="navbar-item">Contact Me</a>
         </div>
 
         <div class="navbar-end">
-          <!-- navbar items -->
         </div>
       </div>
 
 
     </div>
   </nav>
+  <div class="columns">
+    <section class="section">
+      <aside class="menu column is-narrow">
+        <p class="menu-label">
+          Recent Post
+        </p>
+        <ul class="menu-list">
+          {% for post in recent_post %}
+          <li><a href="{%  url 'blog:detail' post.pk %}"> {{ post.title }} </a></li>
+          {% endfor %}
 
 
-  {% block content %}{% endblock %}
+        </ul>
+      </aside>
 
+    </section>
+    <section class="column section">
+
+
+
+      {% block content %}{% endblock %}
+    </section>
+
+  </div>
 </body>
 
 </html>
