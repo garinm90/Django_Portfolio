@@ -1,0 +1,9 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+{% block content %}
+<h1>{% block title %} {{ object.title }} {% endblock %}</h1>
+<ul>
+    <li>{{ object.body }}</li>
+</ul>
+
+{% endblock %}

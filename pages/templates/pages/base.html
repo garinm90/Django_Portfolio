@@ -3,22 +3,24 @@
 <html lang="en">
 
 <head>
-  <title>{% block title %}Max Garin{% endblock %}</title>
+  <title>{% block title %}{% endblock %}</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+  <link rel="stylesheet" href="{% static "pages/main.css" %}">
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js" async></script>
+  <script type="text/javascript" src="http://livejs.com/live.js" async></script>
 
 </head>
 
 <body>
 
-  <nav class="navbar is-light">
+  <nav class="navbar is-dark">
     <div class="container">
       <div class="navbar-brand">
-        <a href="{% url 'pages:index' %}" class="level-item navbar-item is-size-5 has-text-weight-medium">
+        <a href="{% url 'pages:index' %} " class="level-item navbar-item is-size-5 has-text-weight-medium">
           Max Garin
         </a>
         <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
@@ -46,6 +48,7 @@
   <div class="columns">
     <section class="section">
       <aside class="menu column is-narrow">
+        {% block sidebar %}
         <p class="menu-label">
           Recent Post
         </p>
@@ -53,9 +56,8 @@
           {% for post in recent_post %}
           <li><a href="{%  url 'blog:detail' post.pk %}"> {{ post.title }} </a></li>
           {% endfor %}
-
-
         </ul>
+        {% endblock %}
       </aside>
 
     </section>
@@ -67,6 +69,16 @@
     </section>
 
   </div>
+
+  <footer class="">
+    <div class="has-text-centered">
+      <p>
+        <span class="icon">
+          <i class="fab fa-github"></i>
+        </span>
+      </p>
+    </div>
+  </footer>
 </body>
 
 </html>
